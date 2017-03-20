@@ -1,4 +1,5 @@
 import numpy as np
+import pandas as pd
 import os
 
 """
@@ -12,10 +13,10 @@ charbar = ''.join([chr(int(''.join(c), 16)) for c in zip(txt[0::2],txt[1::2])])
 
 
         
-def matrix_to_txt(pd_mat, adress="table_no_name") :
+def matrix_to_txt(pd_mat, address="table_no_name.txt") :
     """
-    convert pandas.DataFrame matrice
-    have to be conbined with the save protocol because of string
+    Convert pandas.DataFrame matrice into latex understandable table
+    Save it into a txt file
     """
     ll = len(pd_mat)
     lc = len(pd_mat.T)
@@ -24,7 +25,7 @@ def matrix_to_txt(pd_mat, adress="table_no_name") :
     
     bali, balend = balise(text="tabular")
     
-    with open(adress+".txt", "w") as f:
+    with open(address, "w") as f:
         #{| l | c | c | c | c | c | c | c | c | }
         
         f.write(bali+"{| l |"+ " c |"*lc+" } \\hline \n")                
