@@ -6,7 +6,7 @@ This package allow to convert pandas.DataFrame to latex matrix
 Please, use only the first function
 
 """
-datadir = os.path.expanduser('~')+'/'
+
 txt = '5C'
 charbar = ''.join([chr(int(''.join(c), 16)) for c in zip(txt[0::2],txt[1::2])])
 
@@ -24,7 +24,7 @@ def matrix_to_txt(pd_mat, adress="table_no_name") :
     
     bali, balend = balise(text="tabular")
     
-    with open(datadir+adress+".txt", "w") as f:
+    with open(adress+".txt", "w") as f:
         #{| l | c | c | c | c | c | c | c | c | }
         
         f.write(bali+"{| l |"+ " c |"*lc+" } \\hline \n")                
